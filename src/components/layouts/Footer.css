@@ -1,0 +1,13 @@
+.footerContainer {
+    background-color: lightgrey;
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footerContainer a {
+    text-decoration: none;
+    color: black;
+    font-size: 80%;
+}
