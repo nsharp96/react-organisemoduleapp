@@ -1,17 +1,15 @@
-const Home = () => {
+const Assessments = () => {
     //Properties
-    //Hooks
     //Context
+    //Hooks
     //Methods
     //View
 
     return (
         <div>
-
-            <h1>Home</h1>
-
+            <h1>My Assessments</h1>
         </div>
     );
 }
 
-export default Home;
+export default Assessments;

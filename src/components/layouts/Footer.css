@@ -1,13 +1,17 @@
 .footerContainer {
     background-color: lightgrey;
-    height: 100%;
-    width: 100%;
     padding: 1rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom:0;
+    height: 2.5rem;
+    width: 80vw;
 }
 
 .footerContainer a {
     text-decoration: none;
     color: black;
     font-size: 80%;
+    margin: auto;
 }

@@ -1,33 +1,31 @@
 div .leftSide {
     background-color: lightblue;
-    height: 100vh;
     padding: 0.75rem;
-    width: 20vw;
     text-align: center;
+    min-width: 175px;
+    width:20vw;
 
 }
 
 .rightSide {
     background-color: white;
-    height: 100vh;
     width: 80vw;
 }
 
 .container {
     display: flex;
     flex-direction: row;
+    min-height: 100vh;
+    position: relative; 
 }
 
 .main {
-    height: 93vh;
+    height:100%;
     padding: 1rem;
+    padding-bottom: 2.5rem;
 }
 
 .footer {
-    height: 7vh;
+    width: 100%;
 }
 
-
-div#root {
-    min-height: 100vh;
-}

@@ -11,7 +11,7 @@ const Signin = () => {
     //Views
 
     return (
-        <h1>Sign in</h1>
+        <h1>My Schedule</h1>
     );
 }
 

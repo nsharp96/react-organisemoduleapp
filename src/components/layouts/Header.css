@@ -2,11 +2,7 @@ h1 {
     font-size: 120%;
 }
 
-h1:hover {
-    cursor: pointer;
-}
-
-img:hover {
+.logoImg:hover {
     cursor: pointer;
 }
 
