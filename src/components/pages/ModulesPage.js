@@ -3,7 +3,7 @@
  import CardContainer from '../layouts/CardContainer';
  import Modules from '../components/Modules.js';
  import { useState } from 'react';
-
+ import EditModule from '../components/EditModule';
  
  const ModulesPage = () => {
      //Properties
@@ -15,7 +15,8 @@
           ModuleCode: "CI2270",
           ModuleLevel: 4,
           ModuleLeaderID: 1,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/9b8/electronic-components-2-1242738.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/9b8/electronic-components-2-1242738.jpg",
+          ModuleFav: true
         },
         {
           ModuleID: 2,
@@ -23,7 +24,8 @@
           ModuleCode: "CI7446",
           ModuleLevel: 7,
           ModuleLeaderID: 2,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/411/light-of-technology-1510575.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/411/light-of-technology-1510575.jpg",
+          ModuleFav: false
         },
         {
           ModuleID: 3,
@@ -31,7 +33,8 @@
           ModuleCode: "CI6388",
           ModuleLevel: 6,
           ModuleLeaderID: 3,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/64b/vla-1-1315506.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/64b/vla-1-1315506.jpg",
+          ModuleFav: true
         },
         {
           ModuleID: 4,
@@ -39,7 +42,8 @@
           ModuleCode: "CI8502",
           ModuleLevel: 6,
           ModuleLeaderID: 4,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/293/cable-4-1243085.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/293/cable-4-1243085.jpg",
+          ModuleFav: false
         },
         {
           ModuleID: 5,
@@ -47,7 +51,8 @@
           ModuleCode: "CI7572",
           ModuleLevel: 7,
           ModuleLeaderID: 5,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/fa1/cable-5-1243077.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/fa1/cable-5-1243077.jpg",
+          ModuleFav: true
         },
         {
           ModuleID: 6,
@@ -55,7 +60,8 @@
           ModuleCode: "CI5068",
           ModuleLevel: 7, 
           ModuleLeaderID: 6, 
-          ModuleImage: "https://images.freeimages.com/images/small-previews/930/towertv-3-1423238.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/930/towertv-3-1423238.jpg",
+          ModuleFav: true
         },
         {
           ModuleID: 7,
@@ -63,7 +69,8 @@
           ModuleCode: "CI9213",
           ModuleLevel: 5,
           ModuleLeaderID: 7,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/cf5/cellphone-1313194.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/cf5/cellphone-1313194.jpg",
+          ModuleFav: false
         },
         {
           ModuleID: 8,
@@ -71,7 +78,8 @@
           ModuleCode: "CI5856",
           ModuleLevel: 7,
           ModuleLeaderID: 8,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/4e8/sala-de-parto-03-1432033.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/4e8/sala-de-parto-03-1432033.jpg",
+          ModuleFav: false
         },
         {
           ModuleID: 9,
@@ -79,7 +87,8 @@
           ModuleCode: "CI3651",
           ModuleLevel: 7,
           ModuleLeaderID: 9,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/6cc/monitor-2-1242535.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/6cc/monitor-2-1242535.jpg",
+          ModuleFav: true
         },
         {
           ModuleID: 10,
@@ -87,7 +96,8 @@
           ModuleCode: "CI7952",
           ModuleLevel: 5,
           ModuleLeaderID: null,
-          ModuleImage: "https://images.freeimages.com/images/small-previews/402/rocket-in-the-museum-1450195.jpg"
+          ModuleImage: "https://images.freeimages.com/images/small-previews/402/rocket-in-the-museum-1450195.jpg",
+          ModuleFav: false
         }
       ])
 
@@ -102,12 +112,22 @@
          setModules(modules.filter((module) => module.ModuleID !== moduleId))
      }
 
+     //Toggle Favourite
+     const toggleFav = (moduleId) => {
+        setModules(modules.map((module) => module.ModuleID === moduleId ? { ...module, ModuleFav: !module.ModuleFav} : module))
+     }
+
+     //Edit Module
+     const editModule = (moduleId) => { 
+        console.log(moduleId)
+    }
+
      const ListAll = () => {
-         console.log("ListAll")
+        
      }
 
      const ListFav = () => {
-         console.log("ListFav")
+         setModules(modules.filter((module) => module.ModuleFav === true))
      }
      
      //View
@@ -132,8 +152,8 @@
                     onClick = {ListFav}
                 />
              </div>
-            {modules.length>0 ? <Modules modules={modules} onDelete={deleteModule} /> : "You are not currently enrolled on any modules."}
-
+            {modules.length>0 ? <Modules modules={modules} onDelete={deleteModule} onFav={toggleFav} onEdit={editModule}/> : "You are not currently enrolled on any modules."}
+            {/* <EditModule /> */}
              
          </div>
          

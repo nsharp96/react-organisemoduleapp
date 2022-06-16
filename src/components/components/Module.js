@@ -1,7 +1,7 @@
 import './Module.css';
 import Button from './Button.js';
 
-const Module = ( {module, onDelete} ) => {
+const Module = ( {module, onDelete, onFav, onEdit} ) => {
     //Properties
     //Context
     //Hooks
@@ -10,6 +10,7 @@ const Module = ( {module, onDelete} ) => {
     return (
         <div className="moduleCard">
             <img className='moduleImg' src={module.ModuleImage} />
+            {module.ModuleFav === true ? <div className='heart'><i className="heart fa fa-heart"></i></div> : null}
             <p className='moduleName'> {module.ModuleName} ({module.ModuleCode}) </p>
             <p className='moduleLevel'>Level {module.ModuleLevel}</p>
             <div className='buttonContainer'>
@@ -17,11 +18,13 @@ const Module = ( {module, onDelete} ) => {
                     type="button"
                     icon="fa fa-check"
                     className="moduleButton"
+                    onClick={() => onFav(module.ModuleID)}
                 />
                 <Button 
                     type="button"
                     icon="fa fa-pencil"
                     className="moduleButton"
+                    onClick={() => onEdit(module.ModuleID)}
                 />
                 <Button 
                     type="button"
