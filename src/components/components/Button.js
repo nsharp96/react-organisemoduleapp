@@ -9,7 +9,7 @@ const Button = (props) => {
     //View
     return (
         <button className={props.className} type={props.type} onClick={props.onClick}>
-            <i class={props.icon}></i>
+            <i className={props.icon}></i>
             <span className='buttonText'>{props.text}</span>
         </button>
         

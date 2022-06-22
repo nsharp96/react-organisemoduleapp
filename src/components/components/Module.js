@@ -6,19 +6,29 @@ const Module = ( {module, onDelete, onFav, onEdit} ) => {
     //Context
     //Hooks
     //Methods
+    const handleFavourite = () => onFav(module.ModuleID)
+    
+
     //View
     return (
         <div className="moduleCard">
+
             <img className='moduleImg' src={module.ModuleImage} />
-            {module.ModuleFav === true ? <div className='heart'><i className="heart fa fa-heart"></i></div> : null}
+
+            {
+                module.ModuleFav === true 
+                    && <div className='heart'><i className="heart fa fa-heart"></i></div> 
+            }
+            
             <p className='moduleName'> {module.ModuleName} ({module.ModuleCode}) </p>
             <p className='moduleLevel'>Level {module.ModuleLevel}</p>
+
             <div className='buttonContainer'>
                 <Button 
                     type="button"
                     icon="fa fa-check"
                     className="moduleButton"
-                    onClick={() => onFav(module.ModuleID)}
+                    onClick={handleFavourite}
                 />
                 <Button 
                     type="button"

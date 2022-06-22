@@ -1,4 +1,4 @@
-.moduleCard {
+div.moduleCard {
     background-color: whitesmoke;
     height: 150px;
     width: 125px;
@@ -8,7 +8,7 @@
     position: relative;
 }
 
-.moduleImg {
+div.moduleCard img.moduleImg {
     width: 125px;
     height: 75px;
     object-fit: cover;
@@ -32,10 +32,10 @@
     margin-left: 40%;
 }
 
-.heart {
+div.heart i.heart {
     color:red;
     position: absolute;
-    margin-left:52px;
-    top:1.5px;
+    margin-left: 105px;
+    top: 3px;
 }
 
